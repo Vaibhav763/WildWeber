@@ -1,13 +1,13 @@
 # WildWeber
 This is a repository for event Webster under Avishkar.
 
-AVENZONE
+# AVENZONE
 Problem Statement : Social Gaming Platform
 All gamers are unique in their own way but due to lack of platform they can’t show off their skills.
 
 Solution
 Create a social platform to show off amazing unique characters.
- Features----
+## Features----
   1.	User Login/Signup 
   2.	Forget Password 
   3.	Post photos/videos of the Game 
@@ -24,16 +24,16 @@ Create a social platform to show off amazing unique characters.
   4.	Gamers can live stream on the website 
   5.	Play videos with controls (play, pause, fast forward) 
 
-Tech stack
+## Tech stack
  •	Html, CSS , JavaScript and bootstrap for frontend
  •	Python language and Django framework for backend.
  •	Version control system : Github
 
-Future Scope
+## Future Scope
 1.	Chatting peer to peer 
 2.	Request to message users (accept/reject)
 
-Team details
+## Team details
 •	Member1 Name: Abhijeet Pandey
                Reg. Number: 20194040
 •	Member2 Name: Vaibhav Agarwal
