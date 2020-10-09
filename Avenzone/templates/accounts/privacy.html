@@ -1,0 +1,155 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Privacy</title>
+
+    <!--  CSS -->
+    <link href="{% static "css/bootstrap/bootstrap.min.css" %}" rel="stylesheet">
+    <link href="{% static "css/self/privacy.css" %}" rel="stylesheet">
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+  </head>
+
+<body>
+  <header>
+      <nav class="navbar navbar-expand-sm navbar-dark dark">
+        <div class="name">
+          <a href="{% url 'index' %}"> <img src="{% static "images/AvenzonePerfect.png" %}" width="40" height="40" alt="" loading="lazy">Avenzone</a>
+        </div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample03" aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarsExample03">
+          <ul class="navbar-nav mr-auto">
+          	<li class="nav-item active">
+               <div class="register">
+                  <a  href="{% url 'index' %}">Home <span class="sr-only">(current)</span></a>
+                <div>
+            </li>
+            <li class="nav-item ">
+               <div class="register">
+                  <a  href="{% url 'team' %}">Contact </span></a>
+                <div>
+            </li>
+            <li class="nav-item ">
+               <div class="register">
+                  <a  href="{% url 'signup' %}">Register </span></a>
+                <div>
+            </li>
+          </ul>
+        </div>
+      </nav>
+  </header>
+
+  <main role="main">
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+         <img src="{% static "images/privacy1.jpg" %}" width="40" height="50" alt="" loading="lazy">
+          <div class="container">
+            <div class="carousel-caption ">
+              <h1>What kind of information do we collect?</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+
+            <div class="py-5 text-center">
+              <div class="container">
+
+                <p>We are committed to safeguarding the privacy of our users. We only collect personal information from you when you enter a contest, respond to a survey, fill out a form or place comments on our site. When you submit any personal information, try to think twice before leaving comments or participating in online activities.</p>
+
+                <p>In this policy, “we”, “us” and “our” refer to (Avenzone). For more information about us, see our about page.</p>
+
+                <p>When you log in to leave comments on our site, you may be asked for the following information:
+                </p>
+                <p>• Your name</p>
+                <p>• Your e-mail address</p>
+
+                <p>Avenzone does not collect or process any of this information. Our comments are handled through Disqus, a third party commenting program, which processes this information.You should abide by the terms of service and privacy policies from these third parties. You can browse Avenzone anonymously, in which none of your information is required.</p>
+
+                <p>We may process your account data (“account data“). The account data may include your name and email address.The source of the account data is directly from the consumer but only with your explicit permission. The account data may be processed for the purposes of operating our website, providing our services, ensuring the security of our website and services,
+                maintaining back-ups of our databases and communicating with you. The legal basis for this processing is our  legitimate interests, namely the proper administration of our website and business.<p>
+
+                <p>We may process information that you post for publication on our website or through our services (“publication data“). The publication data may be processed for the purposes of enabling such publication and administering our website and services. The legal basis for this processing is our legitimate interests, namely the proper administration of our website and business.</p>
+
+                <p>We may process your information included in your personal profile on our website (“profile data“). The profile data may include your name, email address, profile pictures, date of birth, interests and hobbies. The profile data may be processed for the purposes of enabling and monitoring your use of our website and services. The legal basis for this processing is our legitimate interests, namely the proper administration of our website and business.</p>
+
+
+              <div class="space50"></div>
+            </div>
+          </div>
+
+          <!-- FOOTER -->
+
+                            <footer>
+                              <div class="container">
+                                  <div class="row">
+
+                                    <div class="col-md-4">
+                                        <div class="more-info">
+                                            <ul>
+                                                <li><img class="mb-2" src="{% static "images/AvenzonePerfect.png" %}" alt="" width="24" height="24"><span>Avenzone</span></li>
+                                                <li> Socail Gaming Platform</li>
+                                                <li><a href="http://www.mnnit.ac.in/">MNNIT Allahabad</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <div class="more-info">
+                                            <ul>
+                                              <li><span> More From Us </span></li>
+                                              <li><a  href="{% url 'about' %}">About</a></li>
+                                              <li><a href="{% url 'team' %}">Contact</a></li>
+                                              <li><a href="#">Cool stuff</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                      <div class="more-info">
+                                          <ul>
+                                              <li><span>Legal Stuff </span></li>
+                                              <li><a href="{% url 'privacy' %}">Privacy</a></li>
+                                              <li><a href="#">Terms</a></li>
+                                              <li><a href="#">Locations</a></li>
+                                          </ul>
+                                      </div>
+                                    </div>
+                                  </div>
+
+           <!-- BOTTOM FOOTER -->
+                                  <div class="bottom-footer">
+                                      <p><span >Copyright © 2020 Avenzone</span></p>
+                                  </div>
+                              </footer>
+
+          <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+          <script>window.jQuery || document.write('<script src="{% static "js/jquery.slim.min.js" %}"><\/script>')</script>
+          <script src="{% static "js/bootstrap.bundle.min.js" %}"></script>
+
+          </body>
+        </html>
