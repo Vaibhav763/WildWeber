@@ -23,7 +23,7 @@ class UserProfile(models.Model):
     phone = models.CharField(max_length=12, blank=True)
     city = models.CharField(max_length=30, blank=True)
     country = models.CharField(max_length=30, blank=True)
-    gender = models.CharField(choices=GENDERS, max_length=1)
+    gender = models.CharField(choices=GENDERS, max_length=1, default='')
     dob = models.DateField(blank=True)
     qr_code = models.UUIDField(max_length=36, unique=True, default=uuid.uuid4)   # Unique QR code for every User
     profile_pic = models.ImageField(default='default_pic.jpg', upload_to='profilepictures', null=False)
