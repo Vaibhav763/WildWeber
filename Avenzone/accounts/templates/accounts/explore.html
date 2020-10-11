@@ -9,7 +9,7 @@
 
     <!--  CSS -->
     <link href="{% static "css/bootstrap/bootstrap.min.css" %}" rel="stylesheet">
-    <link href="{% static "css/self/searchgamers.css" %}" rel="stylesheet">
+    <link href="{% static "css/self/explore.css" %}" rel="stylesheet">
 
     <style>
       .bd-placeholder-img {
@@ -51,54 +51,55 @@
             </form>
 
             <li class="nav-item dropdown">
-              <a class="textmuted" href="#" aria-label="Search" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <a class="textmuted" href="#" aria-label="Search" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <svg width="1.75em" height="2em" viewBox="0 0 16 16" class="bi bi-caret-down-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                 <path d="M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
                 </svg>
               </a>
 
               <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <a class="dropdown-item" href="#">Verification</a>
-                <a class="dropdown-item" href="#">Password</a>
-                <a class="dropdown-item" href="#">Log Out</a>
+                <a class="dropdown-item" href="{% url 'accounts:verification' %}">Verification</a>
+                <a class="dropdown-item" href="{% url 'accounts:password' %}">Password</a>
+                <a class="dropdown-item" href="{% url 'accounts:feedback' %}">Feedback</a>
+                <a class="dropdown-item" href="{% url 'accounts:index' %}">Log Out</a>
               </div>
             </li>
          </div>
 
-        <div class="space40">
-          <a class="textmuted" href="#" aria-label="Search">
-            <svg width="1.75em" height="2em" viewBox="0 0 16 16" class="bi bi-person-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-            <path d="M13.468 12.37C12.758 11.226 11.195 10 8 10s-4.757 1.225-5.468 2.37A6.987 6.987 0 0 0 8 15a6.987 6.987 0 0 0 5.468-2.63z"/>
-            <path fill-rule="evenodd" d="M8 9a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
-            <path fill-rule="evenodd" d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8z"/>
-            </svg>
-          </a>
-        </div>
+         <div class="space40">
+           <a class="textmuted" href="#" aria-label="Search">
+             <svg width="1.75em" height="2em" viewBox="0 0 16 16" class="bi bi-person-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+             <path d="M13.468 12.37C12.758 11.226 11.195 10 8 10s-4.757 1.225-5.468 2.37A6.987 6.987 0 0 0 8 15a6.987 6.987 0 0 0 5.468-2.63z"/>
+             <path fill-rule="evenodd" d="M8 9a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+             <path fill-rule="evenodd" d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8z"/>
+             </svg>
+           </a>
+         </div>
 
-        <div class="space40">
-          <a class="textmuted" href="#" aria-label="Search">
-            <svg width="1.75em" height="2em" viewBox="0 0 16 16" class="bi bi-plus-square-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd" d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
-          </svg>
-          </a>
-        </div>
+         <div class="space40">
+           <a class="textmuted" href="{% url 'accounts:explore' %}" aria-label="Search">
+             <svg width="1.75em" height="2em" viewBox="0 0 16 16" class="bi bi-plus-square-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+             <path fill-rule="evenodd" d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
+           </svg>
+           </a>
+         </div>
 
-        <div class="space40">
-          <a class="textmuted" href="#" aria-label="Search">
-            <svg width="1.75em" height="2em" viewBox="0 0 16 16" class="bi bi-bell-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-            <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zm.995-14.901a1 1 0 1 0-1.99 0A5.002 5.002 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901z"/>
-            </svg>
-          </a>
-        </div>
+         <div class="space40">
+           <a class="textmuted" href="#" aria-label="Search">
+             <svg width="1.75em" height="2em" viewBox="0 0 16 16" class="bi bi-bell-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+             <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zm.995-14.901a1 1 0 1 0-1.99 0A5.002 5.002 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901z"/>
+             </svg>
+           </a>
+         </div>
 
-        <div class="space40">
-          <a class="textmuted" href="#" aria-label="Search">
-            <svg width="1.75em" height="2em" viewBox="0 0 16 16" class="bi bi-house-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd" d="M8 3.293l6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6zm5-.793V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"/>
-            <path fill-rule="evenodd" d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z"/>
-            </svg>
-          </a>
-        </div>
+         <div class="space40">
+           <a class="textmuted" href="{% url 'accounts:loginbase' %}" aria-label="Search">
+             <svg width="1.75em" height="2em" viewBox="0 0 16 16" class="bi bi-house-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+             <path fill-rule="evenodd" d="M8 3.293l6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6zm5-.793V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"/>
+             <path fill-rule="evenodd" d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z"/>
+             </svg>
+           </a>
+         </div>
     </nav>
   </header>
 
@@ -117,7 +118,7 @@
       <div class="row">
         <div class="col-md-4">
           <div class="card mb-4 shadow-sm">
-            <img src="../assets/brand/back 1.jpg" width="100%" height="225" alt="" loading="lazy">
+            <img src="{% static "images/back 1.jpg" %}" width="100%" height="225" alt="" loading="lazy">
             <div class="card-body">
               <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
               <div class="d-flex justify-content-between align-items-center">
@@ -130,7 +131,7 @@
         </div>
         <div class="col-md-4">
           <div class="card mb-4 shadow-sm">
-            <img src="../assets/brand/back 2.jpg" width="100%" height="225" alt="" loading="lazy">
+            <img src="{% static "images/back 2.jpg" %}" width="100%" height="225" alt="" loading="lazy">
             <div class="card-body">
               <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
               <div class="d-flex justify-content-between align-items-center">
@@ -143,7 +144,7 @@
         </div>
         <div class="col-md-4">
           <div class="card mb-4 shadow-sm">
-            <img src="../assets/brand/back 3.jpg" width="100%" height="225" alt="" loading="lazy">
+            <img src="{% static "images/back 3.jpg" %}" width="100%" height="225" alt="" loading="lazy">
             <div class="card-body">
               <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
               <div class="d-flex justify-content-between align-items-center">
@@ -156,7 +157,7 @@
         </div>
         <div class="col-md-4">
           <div class="card mb-4 shadow-sm">
-            <img src="../assets/brand/back 4.jpg" width="100%" height="225" alt="" loading="lazy">
+            <img src="{% static "images/back 4.jpg" %}" width="100%" height="225" alt="" loading="lazy">
             <div class="card-body">
               <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
               <div class="d-flex justify-content-between align-items-center">
@@ -169,7 +170,7 @@
         </div>
         <div class="col-md-4">
           <div class="card mb-4 shadow-sm">
-            <img src="../assets/brand/back 5.jpg" width="100%" height="225" alt="" loading="lazy">
+            <img src="{% static "images/back 5.jpg" %}" width="100%" height="225" alt="" loading="lazy">
             <div class="card-body">
               <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
               <div class="d-flex justify-content-between align-items-center">
@@ -182,7 +183,7 @@
         </div>
         <div class="col-md-4">
           <div class="card mb-4 shadow-sm">
-            <img src="../assets/brand/back 6.jpg" width="100%" height="225" alt="" loading="lazy">
+            <img src="{% static "images/back 6.jpg" %}" width="100%" height="225" alt="" loading="lazy">
             <div class="card-body">
               <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
               <div class="d-flex justify-content-between align-items-center">
@@ -195,7 +196,7 @@
         </div>
         <div class="col-md-4">
           <div class="card mb-4 shadow-sm">
-            <img src="../assets/brand/back 7.jpg" width="100%" height="225" alt="" loading="lazy">
+            <img src="{% static "images/back 7.jpg" %}" width="100%" height="225" alt="" loading="lazy">
             <div class="card-body">
               <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
               <div class="d-flex justify-content-between align-items-center">
@@ -208,7 +209,7 @@
         </div>
         <div class="col-md-4">
           <div class="card mb-4 shadow-sm">
-            <img src="../assets/brand/back 8.jpg" width="100%" height="225" alt="" loading="lazy">
+            <img src="{% static "images/back 8.jpg" %}" width="100%" height="225" alt="" loading="lazy">
             <div class="card-body">
               <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
               <div class="d-flex justify-content-between align-items-center">
@@ -221,7 +222,7 @@
         </div>
         <div class="col-md-4">
           <div class="card mb-4 shadow-sm">
-            <img src="../assets/brand/back 9.jpg" width="100%" height="225" alt="" loading="lazy">
+             <img src="{% static "images/back 9.jpg" %}" width="100%" height="225" alt="" loading="lazy">
             <div class="card-body">
               <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
               <div class="d-flex justify-content-between align-items-center">
@@ -269,7 +270,7 @@
                                 <ul>
                                     <li><span>Legal Stuff </span></li>
                                     <li><a href="{% url 'accounts:privacy' %}">Privacy</a></li>
-                                    <li><a href="#">Terms</a></li>
+                                    <li><a href="{% url 'accounts:terms' %}">Terms</a></li>
                                     <li><a href="#">Locations</a></li>
                                 </ul>
                             </div>

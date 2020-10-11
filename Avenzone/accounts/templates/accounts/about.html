@@ -8,7 +8,7 @@
 
     <!--  CSS -->
     <link href="{% static "css/bootstrap/bootstrap.min.css" %}" rel="stylesheet">
-    <link href="{% static "css/self/mainpage.css" %}"  rel="stylesheet">
+    <link href="{% static "css/self/about.css" %}"  rel="stylesheet">
 
     <style>
       .bd-placeholder-img {
@@ -73,11 +73,9 @@
 
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img src="{% static "images/774615.jpg" %}" width="40" height="50" alt="" loading="lazy">
+        <img src="{% static "images/back 2.jpg" %}" width="40" height="50" alt="" loading="lazy">
       </div>
-      <div class="carousel-item">
-       <img src="{% static "images/back 2.jpg" %}" width="40" height="50" alt="" loading="lazy">
-      </div>
+
       <div class="carousel-item">
        <img src="{% static "images/back 3.jpg" %}" width="40" height="50" alt="" loading="lazy">
       </div>
@@ -98,6 +96,9 @@
       </div>
       <div class="carousel-item">
        <img src="{% static "images/back 8.jpg" %}" width="40" height="50" alt="" loading="lazy">
+       <div class="carousel-item">
+        <img src="{% static "images/back 9.jpg" %}" width="40" height="50" alt="" loading="lazy">
+       </div>
       </div>
     </div>
 
@@ -118,11 +119,11 @@
 
     <div class="row feature">
       <div class="col-md-7">
-        <h2 class="feature-heading">First featurette heading. <span class="text-muted">It’ll blow your mind.</span></h2>
-        <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+        <h2 class="feature-heading">Our agenda.  <span class="text-muted">It’ll blow your mind.</span></h2>
+        <p class="lead">Avenzone is committed to helping people get the most out of their games. As your source for quality news, reviews, and articles in Gaming and Tabletop, we're here to both help keep you both up to date and informed, while satisfying your ravenous appetite for gaming</p>
       </div>
       <div class="col-md-5">
-        <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 500x500"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg>
+        <img src="{% static "images/about1.jpg" %}" width="100%" height="100%" alt="" loading="lazy">
       </div>
     </div>
 
@@ -131,10 +132,10 @@
     <div class="row feature">
       <div class="col-md-7 order-md-2">
         <h2 class="feature-heading">Oh yeah, it’s that good. <span class="text-muted">See for yourself.</span></h2>
-        <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+        <p class="lead">We provide fun daily content, memes, and comprehensive coverage of the latest and greatest video games. We are the new enthusiast gaming press, for the digital age. We cover games from all over the world. We are committed to bringing you original content, insightful opinions and the full and accurate news without any fluff or agendas.</p>
       </div>
       <div class="col-md-5 order-md-1">
-        <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 500x500"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg>
+        <img src="{% static "images/about2.jpg" %}" width="100%" height="100%" alt="" loading="lazy">
       </div>
     </div>
 
@@ -143,15 +144,16 @@
     <div class="row feature">
       <div class="col-md-7">
         <h2 class="feature-heading">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
-        <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+        <p class="lead">Avenzone games, specialized games, weird games—whatever you want to call them, we love them and we want more people to know about them, and hopefully enjoy them, too. Getting the site and its content exactly how we want it has been quite a ride, and we’ve been loving it!.</p>
       </div>
       <div class="col-md-5">
-        <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 500x500"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg>
+        <img src="{% static "images/about3.jpg" %}" width="100%" height="100%" alt="" loading="lazy">
       </div>
     </div>
 
     <hr class="feature-divider">
   </div>
+
 
 
 
@@ -187,7 +189,7 @@
                                     <ul>
                                         <li><span>Legal Stuff </span></li>
                                         <li><a href="{% url 'accounts:privacy' %}">Privacy</a></li>
-                                        <li><a href="#">Terms</a></li>
+                                        <li><a href="{% url 'accounts:terms' %}">Terms</a></li>
                                         <li><a href="#">Locations</a></li>
                                     </ul>
                                 </div>

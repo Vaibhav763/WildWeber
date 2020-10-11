@@ -18,18 +18,23 @@ def loginbase(request):
         return redirect('accounts:index')
     if request.method == "POST":
         mail = request.POST.get("inputEmail", '')
+        print(mail)
         passw = request.POST.get("inputPassword", '')
         try:
             us = User.objects.get(username = mail)
-            val = authenticate(request, username = us, password = passw)
-            if val is not None:
-                login(request, us)
-            else: 
-                messages.info(request, 'Invalid Credentials')
-                redirect('accounts:index')
         except:
+            us = None
             messages.error(request, 'It seems like you haven\'t joined our community yet. Register if you have not already.')
-    return redirect('accounts:team')
+            print('some error')
+        val = authenticate(request, username = us, password = passw)
+        if val is not None:
+            login(request, us)
+            return redirect('accounts:team')
+        else: 
+            messages.info(request, 'Invalid Credentials')
+            redirect('accounts:index')
+        
+    return redirect('accounts:index')
 
 def registerbase(request):
     if request.user.is_authenticated:
@@ -84,3 +89,15 @@ def signup(request):
 
 def explore(request):
     return render(request,'accounts/explore.html')
+
+def verification(request):
+    return render(request,'accounts/verification.html')
+
+def feedback(request):
+    return render(request,'accounts/feedback.html')
+
+def password(request):
+    return render(request,'accounts/password.html')
+
+def terms(request):
+    return render(request,'accounts/terms.html')

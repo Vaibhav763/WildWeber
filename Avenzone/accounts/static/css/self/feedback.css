@@ -1,17 +1,54 @@
 
 body {
-  color: #5a5a5a;
+  color: #fff;
   background-color: #212529;
 }
 
+.space50 {
+  margin-bottom: 50px;
+}
+
+.container {
+  max-width: 960px;
+}
+
+
+.pb-5, .py-5 {
+  background-color: #2a3034;
+}
+
+
+.lh-condensed {
+ line-height: 1.25; 
+}
+
+.bg {
+    background-color: #212529;
+}
+
+.space30{
+  margin-bottom: 20px;
+}
 
 /* NAVBAR*/
 
 .dark{
-  background-color: #000000;
+  background-color: #0f0f10;
 }
-/* TITLE*/
-.name a{
+
+/* FOR SPACING BETWEEN ICONS*/
+
+.space40{
+  margin-right: 40px;
+}
+ /* FOR COLOUR OF ICONS*/ 
+
+.textmuted{
+  color: #ffffff;
+}
+
+/* TITLE AND LOGO*/
+.name a{ 
   padding-left: 10px;
   padding-right: 10px;
   margin-right: 20px;
@@ -27,72 +64,36 @@ body {
   border-radius: 15px
 }
 
-/* LINKS*/
+ /* FOR PASSWORD CONFIRMATION MODAL*/ 
 
-.register a{
-  padding-left: 20px;
-  padding-right: 20px;
-  font-size: 20px;
-  line-height: 21px;
-  color: #FDFCFC;
-  background: #D00000;
-  box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 11px;
-}
-
-.register {
-  padding:10px;
-}
-
-/* FOR MAIN PAGE BACKGROUND (CAROUSEL)*/
-
-.carousel-caption {
-  bottom: 3rem;
-  z-index: 10;
-}
-
-.carousel-item {
-  height: 40rem;
-}
-.carousel-item img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  min-width: 100%;
-  height: 40rem;
+.modal-content{
+  background-color: #131313;
 }
 
 
-/* Features */
+/* FOR  PAGE BACKGROUND (JUMBOTRON)*/
 
-.feature-divider {
-  margin: 5rem 0;
+.jumbotron {
+  padding-top: 6rem;
+  padding-bottom: 3rem;
+  margin-bottom: 0;
+  background-color: #2a3034;
+  border-radius: .0rem;
+}
+
+.jumbotron p:last-child {
+  margin-bottom: 0;
+}
+
+.jumbotron h1 {
+  font-weight: 500;
   color: #fff;
-
+  line-height: 1.8;
 }
 
-.lead {
-    font-size: 1.25rem;
-    font-weight: 400;
-    color: #f5f5f5;
+.jumbotron .container {
+  max-width: 60rem;
 }
-
-.feature-heading h2 {
-	font-size: 3rem;
-}
-
-
-.feature-heading {
-  color: #fff;
-  font-weight: 300;
-  line-height: 1;
-
-  letter-spacing: -.05rem;
-}
-
-
-
-
 /*FOOTER*/
 
 footer {
@@ -157,19 +158,11 @@ footer {
 /* RESPONSIVE CSS*/
 
 @media (min-width: 40em) {
-
+  
   .carousel-caption p {
     margin-bottom: 1.25rem;
     font-size: 1.25rem;
     line-height: 1.4;
   }
-  .feature-heading {
-    font-size: 50px;
-  }
 }
 
-@media (min-width: 62em) {
-  .feature-heading {
-    margin-top: 7rem;
-  }
-}

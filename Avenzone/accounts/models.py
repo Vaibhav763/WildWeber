@@ -9,9 +9,14 @@ from django.urls import reverse
 from django.utils.text import slugify
 from django.core.validators import MaxValueValidator, MinValueValidator
 
+def get_upload_path_images(instance, filename):
+    return 'posts/images/{0}/{1}'.format(instance.user.id, filename)             # upload path for images
+
+def get_upload_path_files(instance, filename):
+    return 'posts/images/{0}/{1}'.format(instance.user.id, filename)             # upload path for files
+
 # Create your models here.
-# General Profile of the user with details
-class UserProfile(models.Model):
+class UserProfile(models.Model):                                                     # General Profile of the user with details
 
     GENDERS = (
         ('M', 'Male'),
@@ -43,7 +48,7 @@ class UserProfile(models.Model):
     def __str__(self):
         return "{} - {}".format(self.id, self.auth_user.username)
     
-    def save(self, *args, **kwargs):
+    def save(self, *args, **kwargs):                                                     #change image to 300x300 if bigger
         super().save(*args, **kwargs)
         img = Image.open(self.profile_pic.path)
         if img.height > 300 or img.width > 300:
@@ -58,28 +63,37 @@ class UserProfile(models.Model):
 #     # following_count = models.PositiveIntegerField(max_length=12, default=0)
 #     rating = models.DecimalField(decimal_places=2, max_digits=3, blank=False)
 
-class UserRating(models.Model):
+class UserRating(models.Model):                                                     # Rating for user by another user
     rated_for = models.ForeignKey(User, on_delete=models.CASCADE)
     rated_by = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
     rate = models.IntegerField(validators=[MinValueValidator(0),MaxValueValidator(6)], blank=False)
     review = models.TextField(blank=True)
 
-    class Meta:
+    class Meta:                                                     # rated for and raded by must be unique together so one cannot repeat
         unique_together = ['rated_for', 'rated_by']
         
     def __str__(self):
         return f'{self.rated_by.auth_user.username} rated User {self.rated_for.username}'
 
-class Game(models.Model):
+class Game(models.Model):                                                     # Table for games
     name = models.CharField(max_length=30, unique=True)
     players = models.PositiveIntegerField(default=0)
     price = models.DecimalField(decimal_places=2, max_digits=10, default=0)
+    thumbpic = models.ImageField(default='controller_default.jpg', upload_to='gamethumbnails', null=False)
     rating = models.DecimalField(decimal_places=2, max_digits=3, blank=False)
 
     def __str__(self):
         return self.name
+    
+    def save(self, *args, **kwargs):                                                     # Game thumbnail more than 400x300 will be converted
+        super().save(*args, **kwargs)
+        img = Image.open(self.thumbpic.path)
+        if img.height > 400 or img.width > 300:
+            output_size = (400, 300)
+            img.thumbnail(output_size)
+            img.save(self.thumbpic.path)
 
-class GameRating(models.Model):
+class GameRating(models.Model):                                                     # Rating for game by a user
     rated_for = models.ForeignKey(Game, on_delete=models.CASCADE)
     rated_by = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
     rate = models.IntegerField(validators=[MinValueValidator(0),MaxValueValidator(6)], blank=False)
@@ -93,25 +107,27 @@ class GameRating(models.Model):
         return f'{self.rated_by.auth_user.username} rated Game_ID {self.rated_for.pk}'
 
 
-class Post(models.Model):
+class Post(models.Model):                                                     # Table for posts by users
     auth_user = models.ForeignKey(User, on_delete=models.CASCADE)
     profile = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
     caption = models.CharField(max_length=100, blank=True)
     description = models.TextField(blank=True)
+    postimage = models.ImageField(upload_to= get_upload_path_images, blank=True)
+    postdata = models.FileField(upload_to= get_upload_path_files, blank=True)
     slug = models.SlugField(max_length=50, blank=False, default='')
     posted_on = models.DateTimeField()
     game = models.ForeignKey(Game, on_delete=models.CASCADE, blank=True)
 
     def save(self, *args, **kwargs):
         value = f"{self.pk}-{self.caption}"
-        slugi = slugify(value, allow_unicode=True)
+        slugi = slugify(value, allow_unicode=True)                                                     # Create slug for urls
         self.slug = slugi
         super().save(*args, **kwargs)
 
     def __str__(self):
         return self.slug
 
-class PostRating(models.Model):
+class PostRating(models.Model):                                                     # Rating for post by a user
     rated_for = models.ForeignKey(Post, on_delete=models.CASCADE)
     rated_by = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
     rate = models.IntegerField(validators=[MinValueValidator(0),MaxValueValidator(6)], blank=False)
@@ -123,7 +139,7 @@ class PostRating(models.Model):
     def __str__(self):
         return f'{self.rated_by.auth_user.username} rated Post_ID {self.rated_for.pk}'
 
-class Comment(models.Model):
+class Comment(models.Model):                                                     # Table for comments on a post
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
     comment_by = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
     content = models.TextField(blank=False)
@@ -132,7 +148,7 @@ class Comment(models.Model):
     def __str__(self):
         return f'{self.post.pk}-{self.comment_by.auth_user.username}-{self.pk}'
 
-class PostReport(models.Model):
+class PostReport(models.Model):                                                     # tables containing reports for posts
     report_desc = models.TextField(blank = False)
     reported_by = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
     reported_to = models.ForeignKey(Post, on_delete=models.CASCADE)
@@ -144,7 +160,7 @@ class PostReport(models.Model):
     def __str__(self):
         return f"post({self.reported_to.pk})-{self.reported_by.auth_user.username}-{self.pk}"
 
-class UserReport(models.Model):
+class UserReport(models.Model):                                                     # tables containing reports for users
     report_desc = models.TextField(blank = False)
     reported_by = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
     reported_to = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -157,7 +173,7 @@ class UserReport(models.Model):
         return f"user({self.reported_to.username})-{self.reported_by.auth_user.username}-{self.pk}"
 
 
-class GameReport(models.Model):
+class GameReport(models.Model):                                                     # tables containing reports for games
     report_desc = models.TextField(blank = False)
     reported_by = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
     reported_to = models.ForeignKey(Game, on_delete=models.CASCADE)
@@ -169,37 +185,37 @@ class GameReport(models.Model):
     def __str__(self):
         return f"game({self.reported_to.pk})-{self.reported_by.auth_user.username}-{self.pk}"
 
-class Follower(models.Model):
+class Follower(models.Model):                                                     # tables containing followers corresponding to the user
     
     auth_user = models.ForeignKey(User, on_delete=models.CASCADE)
     followed_by = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
 
     class Meta:
-        unique_together = ['auth_user', 'followed_by']
+        unique_together = ['auth_user', 'followed_by']                                                     # user and follower must be unique together
 
     def __str__(self):
         return f'{self.auth_user.username} followed by {self.followed_by.auth_user.username}'
 
 
-class Following(models.Model):
+class Following(models.Model):                                                     # tables containing gamers which the user is following
     
     auth_user = models.ForeignKey(User, on_delete=models.CASCADE)
     followed_to = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
 
     class Meta:
-        unique_together = ['auth_user', 'followed_to']
+        unique_together = ['auth_user', 'followed_to']                                                     # user can follow a gamer only one time
 
     def __str__(self):
         return f'{self.auth_user.username} followed by {self.followed_to.auth_user.username}'
 
-class CreatorNotification(models.Model):
+class CreatorNotification(models.Model):                                                     # notifications created by creators
     auth_user = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.CharField(max_length=100, blank=False)
 
     def __str__(self):
         return f'{self.pk}-{self.title}'
 
-class UserNotification(models.Model):
+class UserNotification(models.Model):                                                     # user will only get the notifications of only those gamers which he is following
     auth_user = models.ForeignKey(User, on_delete=models.CASCADE)
     content = models.ForeignKey(CreatorNotification, on_delete=models.CASCADE)
 
