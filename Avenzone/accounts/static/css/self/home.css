@@ -1,7 +1,6 @@
 /* BAKGROUND IMAGE*/
 #home {
-  background: url(../assets/brand/background.png);
-
+  background-image: url('{% static 'images/background.png' %}');
   background-size: auto;
 }
 
@@ -17,7 +16,7 @@ body {
 /* NAVBAR*/
 
 .dark{
-  background-color: #0f0f10;
+  background-color: #000000;
 }
 
 /*NAVBAR LOGO*/
@@ -57,30 +56,12 @@ body {
   margin-bottom: 100px;
 }
 
-.space80{
-  margin-bottom: 100px;
-}
-
 .space30{
   margin-bottom: 30px;
 }
 
 .space20{
   margin-bottom: 20px;
-}
-
-
-/* FOR JUMBOTRON COVER */
-
-.jumbotron {
-  padding-top: 3rem;
-  padding-bottom: 3rem;
-  margin-bottom: 0;
-  background-color: #2a3034;
-}
-
-.jumbotron .container {
-  max-width: 60rem;
 }
 
 
@@ -100,13 +81,13 @@ body {
 /* FOR INFO TEXT */
 
 .info h3{
-  font-weight: 500;
-  color:#f5f5f5;
+	font-weight: 500;
+	color:#f5f5f5;
 }
 
 .info p{
-  font-size: 16px;
-  color:#f5f5f5;
+	font-size: 16px;
+	color:#f5f5f5;
 }
 
 .info a{
@@ -116,7 +97,7 @@ body {
 /* CARDS*/
 
 .card {
-  padding: 3px;
+	padding: 3px;
 }
 
 /* FOR BLOG POSTS */
@@ -127,9 +108,10 @@ body {
 
 }
 .blog-post-title {
-  margin-left: 1rem;
+  /*margin-left: 1rem;*/
   margin-bottom: .25rem;
   font-size: 2.5rem;
+  background-color: #D00000;
 }
 
 .blog-post p{
@@ -139,7 +121,7 @@ body {
 /* FOOTER*/
 
 footer {
-  background-color: #0f0f10;
+  background-color: #000000;
   border-top: 4px solid #D00000;
 
 }
@@ -189,11 +171,4 @@ footer {
 .bottom-footer span{
   color: #f5f5f5;
   font-size: 15px;
-}
-
-
-
-
-h1, h2, h3, h4, h5, h6 {
-  font-family: "Playfair Display", Georgia, "Times New Roman", serif;
 }

@@ -22,10 +22,10 @@ body {
 /* NAVBAR*/
 
 .dark{
-  background-color: #0f0f10;
+  background-color: #000000;
 }
 /* TITLE*/
-.name a{ 
+.name a{
   padding-left: 10px;
   padding-right: 10px;
   margin-right: 20px;
@@ -66,7 +66,7 @@ body {
   padding-top: 6rem;
   padding-bottom: 3rem;
   margin-bottom: 0;
-  background-color: #2a3034;
+  background-color: #0c0c0d;
   border-radius: .0rem;
 }
 
@@ -87,7 +87,7 @@ body {
 /*FOOTER*/
 
 footer {
-  background-color: #0f0f10;
+  background-color: #000000;
   border-top: 4px solid #D00000;
 }
 
@@ -148,7 +148,7 @@ footer {
 /* RESPONSIVE CSS*/
 
 @media (min-width: 40em) {
-  
+
   .carousel-caption p {
     margin-bottom: 1.25rem;
     font-size: 1.25rem;
