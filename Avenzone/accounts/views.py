@@ -102,7 +102,9 @@ def signup(request):
 
 
 def explore(request):
-    return render(request, 'accounts/explore.html')
+    games = Game.objects.all()
+    params = {'games': games}
+    return render(request, 'accounts/explore.html',  params)
 
 
 def verification(request):
@@ -114,7 +116,22 @@ def feedback(request):
 
 
 def password(request):
-    return render(request, 'accounts/password.html')
+    if request.user.is_authenticated:
+        return render(request, 'accounts/password.html')
+    return redirect('accounts:index')
+
+
+def passwordbase(request):
+    if request.user.is_authenticated:
+        us = request.user
+        if request.method == "POST":
+            npassw = request.POST.get('address')
+            us.set_password(npassw)
+            us.save()
+            messages.success(request, 'Password Updated Successfully!')
+            return redirect('accounts:home')
+        return redirect('accounts:password')
+    return redirect('account:index')
 
 
 def terms(request):
@@ -123,3 +140,8 @@ def terms(request):
 
 def home(request):
     return render(request, 'accounts/home.html')
+
+
+def logoutbase(request):
+    logout(request)
+    return redirect("accounts:index")

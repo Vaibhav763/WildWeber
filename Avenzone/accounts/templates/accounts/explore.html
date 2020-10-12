@@ -65,7 +65,7 @@
                 <a class="dropdown-item" href="{% url 'accounts:verification' %}">Verification</a>
                 <a class="dropdown-item" href="{% url 'accounts:password' %}">Password</a>
                 <a class="dropdown-item" href="{% url 'accounts:feedback' %}">Feedback</a>
-                <a class="dropdown-item" href="{% url 'accounts:index' %}">Log Out</a>
+                <a class="dropdown-item" href="{% url 'accounts:logoutbase' %}">Log Out</a>
               </div>
             </li>
          </div>
@@ -120,19 +120,26 @@
     <div class="container">
 
       <div class="row">
+        {% for game in games %}
         <div class="col-md-4">
           <div class="card mb-4 shadow-sm">
-            <img src="{% static "images/back 1.jpg" %}" width="100%" height="225" alt="" loading="lazy">
+            <img src="/media/{{game.thumbpic}}" width="100%" height="225" alt="" loading="lazy">
             <div class="card-body">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              <h3 class="card-header"> {{ game.name }} </h3>
+              
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                  <a role="button" href="#game-{{forloop.counter}}" data-toggle="collapse" aria-controls="{{game.pk}}" aria-expanded="false" class="btn btn-sm btn-outline-secondary">Read More</a>
+                  <a href="{{ game.steamlink }}" role="button" type="button" class="btn btn-sm btn-outline-secondary">View</a>
                 </div>
+              </div>
+              <div class="collapse" id="game-{{forloop.counter}}" >
+                <p class="card-text" > {{ game.desc }} </p>
               </div>
             </div>
           </div>
         </div>
+        {%endfor%}
         <div class="col-md-4">
           <div class="card mb-4 shadow-sm">
             <img src="{% static "images/back 2.jpg" %}" width="100%" height="225" alt="" loading="lazy">
@@ -289,7 +296,7 @@
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script>window.jQuery || document.write('<script src="{% static "js/jquery.slim.min.js" %}"><\/script>')</script>
-<script src="{% static "js/bootstrap.bundle.min.js" %}"></script>
+<script src='{% static "js/bootstrap.min.js" %}'></script>
 
 </body>
 </html>

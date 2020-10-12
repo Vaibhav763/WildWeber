@@ -5,8 +5,8 @@ from django.conf.urls import url
 app_name = 'accounts'
 
 urlpatterns = [
-    
-    url(r'^$',views.index,name='index'),
+
+    url(r'^$', views.index, name='index'),
     url(r'^about/$', views.about, name='about'),
     url(r'^explore/$', views.explore, name='explore'),
     url(r'^privacy/$', views.privacy, name='privacy'),
@@ -19,6 +19,8 @@ urlpatterns = [
     url(r'^password/$', views.password, name='password'),
     url(r'^home/$', views.home, name='home'),
 
-    re_path(r'^loginbase/$',views.loginbase,name='loginbase'),
-    re_path(r'^registerbase/$',views.registerbase,name='registerbase'),
+    re_path(r'^logoutbase/$', views.logoutbase, name='logoutbase'),
+    re_path(r'^passwordbase/$', views.passwordbase, name='passwordbase'),
+    re_path(r'^loginbase/$', views.loginbase, name='loginbase'),
+    re_path(r'^registerbase/$', views.registerbase, name='registerbase'),
 ]
