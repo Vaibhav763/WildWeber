@@ -234,6 +234,30 @@ class Follower(models.Model):
 
     def __str__(self):
         return f'{self.auth_user.username} followed by {self.followed_by.auth_user.username}'
+    
+class GameFollower(models.Model):
+    
+    game = models.ForeignKey(Game, on_delete=models.CASCADE)
+    followed_by = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
+
+    class Meta:
+        # user and follower must be unique together
+        unique_together = ['game', 'followed_by']
+
+    def __str__(self):
+        return f'{self.game.name} followed by {self.followed_by.auth_user.username}'
+    
+class GameFollowing(models.Model):
+    
+    game = models.ForeignKey(Game, on_delete=models.CASCADE)
+    followed_to = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
+
+    class Meta:
+        # user and follower must be unique together
+        unique_together = ['game', 'followed_to']
+
+    def __str__(self):
+        return f'{self.game.name} followed by {self.followed_to.auth_user.username}'
 
 
 # tables containing gamers which the user is following
