@@ -36,6 +36,7 @@ def loginbase(request):
             login(request, us)
             return redirect('accounts:home')
         else:
+            print("invalid creds")
             messages.info(request, 'Invalid Credentials')
             redirect('accounts:index')
 
@@ -125,10 +126,12 @@ def passwordbase(request):
     if request.user.is_authenticated:
         us = request.user
         if request.method == "POST":
-            npassw = request.POST.get('address')
+            npassw = request.POST.get('address', '')
+            print(npassw)
             us.set_password(npassw)
             us.save()
             messages.success(request, 'Password Updated Successfully!')
+            print("corrected")
             return redirect('accounts:home')
         return redirect('accounts:password')
     return redirect('account:index')
@@ -145,3 +148,13 @@ def home(request):
 def logoutbase(request):
     logout(request)
     return redirect("accounts:index")
+
+
+def follow(request):
+    return render(request, 'accounts/follow.html')
+
+def notification(request):
+    return render(request, 'accounts/notification.html')
+
+def profile(request):
+    return render(request, 'accounts/profile.html')

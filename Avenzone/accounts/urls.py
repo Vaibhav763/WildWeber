@@ -18,6 +18,9 @@ urlpatterns = [
     url(r'^feedback/$', views.feedback, name='feedback'),
     url(r'^password/$', views.password, name='password'),
     url(r'^home/$', views.home, name='home'),
+    url(r'^profile/$', views.profile, name='profile'),
+    url(r'^notification/$', views.notification, name='notification'),
+    url(r'^follow/$', views.follow, name='follow'),
 
     re_path(r'^logoutbase/$', views.logoutbase, name='logoutbase'),
     re_path(r'^passwordbase/$', views.passwordbase, name='passwordbase'),
