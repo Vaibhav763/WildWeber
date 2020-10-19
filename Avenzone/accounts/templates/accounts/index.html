@@ -1,58 +1,9 @@
 <!doctype html>
+{% extends "accounts/base.html" %}
+{% block body_block %}
 {% load static %}
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Main Page</title>
 
-    <!-- CSS -->
-    <link href="{% static "css/bootstrap/bootstrap.min.css" %}" rel="stylesheet">
     <link href="{% static "css/self/index.css" %}" rel="stylesheet">
-
-    <style>
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-      }
-
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
-    </style>
-  </head>
-
-
-<body>
-
-<!-- HEADER (NAVBAR) -->
-
-  <header>
-      <nav class="navbar navbar-expand-sm navbar-dark dark">
-      <div class="name">
-        <a href="{% url 'accounts:index' %}"> <img src="{% static "images/AvenzonePerfect.png" %}" width="40" height="40" alt="" loading="lazy">Avenzone</a>
-      </div>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample03" aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarsExample03">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-               <div class="register">
-                  <a  href="{% url 'accounts:signup' %}">Register <span class="sr-only">(current)</span></a>
-                <div>
-            </li>
-          </ul>
-        </div>
-      </nav>
-  </header>
 
   <main role="main">
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -65,7 +16,7 @@
               <h1>A World Light Years Ahead Of Your Imagination !!</h1>
               <p>Ready for the ADRENALIN Rush ?</p>
 
-              <form class="form-signin" action="{% url 'accounts:home' %}" method="POST"> {% csrf_token %}
+              <form class="form-signin" action="{% url 'accounts:loginbase' %}" method="POST"> {% csrf_token %}
                 <label for="inputEmail" class="sr-only">Email address</label>
                 <input type="text" id="inputEmail" name="inputEmail" class="control" placeholder="Username" required autofocus>
                 <label for="inputPassword" class="sr-only">Password</label>
@@ -83,56 +34,4 @@
       </div>
     </div>
   </main>
-
-
-  <!-- FOOTER -->
-
-                    <footer>
-                      <div class="container">
-                          <div class="row">
-
-                            <div class="col-md-4">
-                                <div class="more-info">
-                                    <ul>
-                                        <li><img class="mb-2" src="{% static "images/AvenzonePerfect.png" %}" alt="" width="24" height="24"><span>Avenzone</span></li>
-                                        <li> Socail Gaming Platform</li>
-                                        <li><a href="http://www.mnnit.ac.in/">MNNIT Allahabad</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <div class="col-md-4">
-                                <div class="more-info">
-                                    <ul>
-                                      <li><span> More From Us </span></li>
-                                      <li><a  href="{% url 'accounts:about' %}">About</a></li>
-                                      <li><a href="{% url 'accounts:team' %}">Contact</a></li>
-                                      <li><a href="#">Cool stuff</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <div class="col-md-4">
-                              <div class="more-info">
-                                  <ul>
-                                      <li><span>Legal Stuff </span></li>
-                                      <li><a href="{% url 'accounts:privacy' %}">Privacy</a></li>
-                                      <li><a href="{% url 'accounts:terms' %}">Terms</a></li>
-                                      <li><a href="{% url 'accounts:home' %}">Locations</a></li>
-                                  </ul>
-                              </div>
-                            </div>
-                          </div>
-
-   <!-- BOTTOM FOOTER -->
-                          <div class="bottom-footer">
-                              <p><span >Copyright © 2020 Avenzone</span></p>
-                          </div>
-                      </footer>
-
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-  <script>window.jQuery || document.write('<script src="{% static "js/jquery.slim.min.js" %}"><\/script>')</script>
-  <script src="{% static "js/bootstrap.bundle.min.js" %}"></script>
-
-  </body>
-</html>
+{% endblock %}
