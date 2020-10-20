@@ -26,4 +26,5 @@ urlpatterns = [
     re_path(r'^passwordbase/$', views.passwordbase, name='passwordbase'),
     re_path(r'^loginbase/$', views.loginbase, name='loginbase'),
     re_path(r'^registerbase/$', views.registerbase, name='registerbase'),
+    re_path(r'^feedbackbase/$', views.feedbackbase, name='feedbackbase'),
 ]

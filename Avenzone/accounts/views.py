@@ -4,7 +4,7 @@ from django.shortcuts import render, redirect, get_object_or_404, get_list_or_40
 from django.contrib.auth.models import User
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.decorators import login_required
-from .models import UserProfile, UserRating, Game, GameRating, Post, PostRating, Comment, PostReport, UserReport, GameReport, Follower, Following, CreatorNotification, UserNotification
+from .models import UserProfile, UserRating, Game, Review , GameRating, Post, PostRating, Comment, PostReport, UserReport, GameReport, Follower, Following, CreatorNotification, UserNotification
 from django.contrib import messages
 import datetime
 import random
@@ -79,6 +79,23 @@ def registerbase(request):
         #     return redirect('accounts:index')
     return redirect('accounts:index')
 
+def feedbackbase(request):
+    if request.method == "POST":
+        name = request.POST.get("fname",'')
+        mail = request.POST.get("email", '')
+        feed = request.POST.get("Textarea", '')
+        # print(name)
+        # print(mail)
+        # print(feed)
+        us = Review()
+        us.email = mail
+        us.name = name
+        us.feed = feed
+        us.save()
+
+        return redirect('accounts:feedback')
+    return redirect('accounts:home')
+
 
 def about(request):
     return render(request, 'accounts/about.html')
@@ -135,6 +152,7 @@ def passwordbase(request):
             return redirect('accounts:home')
         return redirect('accounts:password')
     return redirect('account:index')
+
 
 
 def terms(request):

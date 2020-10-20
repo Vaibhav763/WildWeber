@@ -290,3 +290,13 @@ class UserNotification(models.Model):
 
     def __str__(self):
         return f'{self.pk}-{self.content.title}'
+    
+# to get back the feedback from user
+
+class Review(models.Model):
+    name= models.CharField(max_length=30, blank=False)
+    email = models.CharField(max_length=50,blank = False)
+    feed = models.TextField(blank = False)
+
+    def __str__(self):
+        return self.name
