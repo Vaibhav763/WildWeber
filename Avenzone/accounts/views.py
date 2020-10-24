@@ -221,3 +221,6 @@ def followers(request):
 
 def following(request):
     return render(request, 'accounts/following.html')
+
+def createpost(request):
+    return render(request, 'accounts/createpost.html')

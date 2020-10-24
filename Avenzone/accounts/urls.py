@@ -26,6 +26,7 @@ urlpatterns = [
     url(r'^following/$', views.following, name='following'),
     url(r'^details/$', views.details, name='details'),
     url(r'^editdetails/$', views.editdetails, name='editdetails'),
+    url(r'^createpost/$', views.createpost, name='createpost'),
 
 
     re_path(r'^logoutbase/$', views.logoutbase, name='logoutbase'),
