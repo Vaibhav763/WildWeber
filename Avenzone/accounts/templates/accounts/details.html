@@ -1,0 +1,109 @@
+<!doctype html>
+{% extends "accounts/base.html" %}
+{% block body_block %}
+{% load static %}
+
+    <link href="{% static "css/self/details.css" %}" rel="stylesheet">
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+
+        @media screen and (min-width: 601px) {
+  div.examplet {
+    font-size: 80px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  div.examplet {
+    font-size: 30px;
+  }
+}
+    </style>
+
+    <main role="main" class="container" style="margin-top: 65px;">
+
+    <!-- first container   -->
+
+       <div class="dark2">
+         <img src="{% static "images/gamer.jpg" %}"  alt="" loading="lazy" id="over" style="" class="responsive">
+         <div class="container responsive" >
+             <span href="" class="header2 username responsive examplet"><img src="{% static "images/lady.png" %}" width="80px" height="80px" style="border-radius:170px; ">
+             @coco131 <button type="button" class="btn btn-danger"><a href ="{% url 'accounts:editdetails' %}">Edit Profile</a></button></span>
+         </div>
+       </div>
+
+       <!-- intro block -->
+<div class="row" style="background: rgba(85, 85, 85, 0.3);">
+
+           <aside class="col-md-4 blog-sidebar">
+             <div class="p-4 mb-3 rounded" style="background: rgba(00, 00, 00, 0.3); margin: 30px 0px 0px 0px;">
+               <h1 class="h1" style="color: gray">INTRO</h1>
+
+               <div class="row space30" >
+                  <h3 class="font-italic intro"> <img src="{% static "images/gstar.png" %}" width="45px"><a href="#">Rating</a></h3>
+               </div>
+               <div class="row space30" >
+                  <h3 class="font-italic intro"> <img src="{% static "images/book.png" %}" width="45px"><a href="{% url 'accounts:details' %}"> About</a></h3>
+               </div>
+               <div class="row space30" >
+                  <h3 class="font-italic intro"> <img src="{% static "images/trophies.png" %}" width="45px"><a href="{% url 'accounts:followers' %}"> Followers</a></h3>
+               </div>
+               <div class="row space30" >
+                  <h3 class="font-italic intro"> <img src="{% static "images/emoji.png" %}" width="45px"> <a href="{% url 'accounts:following' %}"> Following</a></h3>
+               </div>
+              </div>
+          </aside>
+   <!-- intro block ends here -->
+
+<!-- post block -->
+<div class="col-md-8 blog-main">
+  <div class="blog-post" style="padding: 2px; background: rgba(00,00,00,0.3);">
+     <h2 class="blog-post-title" style="color: gray; background: rgba(00,00,00,0.3);" >ABOUT</h2>
+
+       <ul style="color: grey">
+
+          <li style="font-size: 20px">Bio
+               <ul>
+                <li> dertyryuhfsdfhasufhfuhsufhfushfu</li>
+              </ul>
+           </li>
+
+           <li style="font-size: 20px">Personal info
+            <ul>
+                 <li>City :</li>
+                 <li>Country :</li>
+                 <li>Gender : </li>
+                 <li>Date of Birth : </li>
+            </ul>
+           </li>
+
+           <li style="font-size: 20px">Contact info
+               <ul>
+                 <li>Facebook link : </li>
+                 <li>Email address : </li>
+                 <li>Phone no.: </li>
+               </ul>
+           </li>
+        </ul>
+    </div>
+  </div>
+</div>
+      <div class = "space50"></div>
+
+<!-- post block ends -->
+</main>
+{% endblock %}

@@ -6,9 +6,39 @@ from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.decorators import login_required
 from .models import UserProfile, UserRating, Game, Review , GameRating, Post, PostRating, Comment, PostReport, UserReport, GameReport, Follower, Following, CreatorNotification, UserNotification
 from django.contrib import messages
+from django.core.mail import BadHeaderError, send_mail
+from django.http import HttpResponse, HttpResponseRedirect
 import datetime
 import random
 # Create your views here.
+
+
+
+#def sendemail(request):
+    #if request.user.is_authenticated:
+    #    mail = request.POST.get("email", '')
+        #us = User(username=usnm)
+        #user_email = us
+        #us.save()
+    #    new = UserProfile(auth_user=us)
+        #message= new.secretkey
+        #new.save()
+
+        #subject = "User_Verification"
+        #from_email = "Avenzone3@gmail.com"
+
+        #if mail == from_email:
+        #    try:
+        #        send_mail(subject, message, from_email, ['admin@example.com'])
+        #    except BadHeaderError:
+        #        return HttpResponse('Invalid header found.')
+        #    return redirect('account:verification')
+        #else:
+            # In reality we'd use a form class
+
+
+        # to get proper validation errors.
+        #return HttpResponse('Make sure all fields are entered and valid.')
 
 
 def index(request):
@@ -176,3 +206,18 @@ def notification(request):
 
 def profile(request):
     return render(request, 'accounts/profile.html')
+
+def friendprofile(request):
+    return render(request, 'accounts/friendprofile.html')
+
+def details(request):
+    return render(request, 'accounts/details.html')
+
+def editdetails(request):
+    return render(request, 'accounts/editdetails.html')
+
+def followers(request):
+    return render(request, 'accounts/followers.html')
+
+def following(request):
+    return render(request, 'accounts/following.html')

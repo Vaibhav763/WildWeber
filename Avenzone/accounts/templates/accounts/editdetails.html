@@ -1,0 +1,103 @@
+<!doctype html>
+{% extends "accounts/base.html" %}
+{% block body_block %}
+{% load static %}
+<link href="{% static "css/self/editdetails.css" %}" rel="stylesheet">
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+        @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+
+        @media screen and (min-width: 601px) {
+        div.examplet {
+          font-size: 80px;
+        }
+      }
+
+    @media screen and (max-width: 600px) {
+      div.examplet {
+        font-size: 30px;
+      }
+    }
+    </style>
+
+<main role="main" class="container">
+  <div class = "space100"></div>
+
+  <div class="container dark" style="color: grey; background: rgba(85, 85, 85, 0.3);  ">
+      <div class="main">
+        <div class="main-center">
+        <h4>Update your Info</h4>
+          <form class="" method="post" action="#">
+
+            <div class="form-group">
+              <label for="password">Bio</label>
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                  <input type="password" class="form-control" name="password" placeholder="Tell Something about You"/>
+                </div>
+            </div>
+
+            <div class="form-group">
+              <label for="name">Currently living in</label>
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                  <input type="text" class="form-control" name="name" id="name"  placeholder="Enter city/state/country name"/>
+                </div>
+            </div>
+
+            <div class="form-group">
+              <label for="username">Date of Birth</label>
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
+                  <input type="text" class="form-control" name="username" placeholder="Enter your DOB"/>
+                </div>
+            </div>
+
+            <div class="form-group">
+              <label for="name">Your phone number</label>
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                  <input type="tel" class="form-control" name="phone" id="phone"  placeholder="Enter city/state/country name"/>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Facebook link</label>
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+                  <input type="url" class="form-control" name="homepage" placeholder="Enter your profile link here"/>
+                </div>
+            </div>
+
+            <div class="form-group">
+              <label for="confirm">extra</label>
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                  <input type="password" class="form-control" name="confirm" placeholder="extra"/>
+                </div>
+            </div>
+
+        <button type="submit" class="btn btn-danger">UPDATE</button>
+
+          </form>
+
+        </div><!--main-center"-->
+      </div>
+    </div>
+    <div class = "space50"></div>
+</main>
+<script src="{% static "js/offcanvas.js" %}"></script>
+ {% endblock %}
