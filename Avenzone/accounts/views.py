@@ -6,9 +6,39 @@ from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.decorators import login_required
 from .models import UserProfile, UserRating, Game, Review , GameRating, Post, PostRating, Comment, PostReport, UserReport, GameReport, Follower, Following, CreatorNotification, UserNotification
 from django.contrib import messages
+from django.core.mail import BadHeaderError, send_mail
+from django.http import HttpResponse, HttpResponseRedirect
 import datetime
 import random
 # Create your views here.
+
+
+
+#def sendemail(request):
+    #if request.user.is_authenticated:
+    #    mail = request.POST.get("email", '')
+        #us = User(username=usnm)
+        #user_email = us
+        #us.save()
+    #    new = UserProfile(auth_user=us)
+        #message= new.secretkey
+        #new.save()
+
+        #subject = "User_Verification"
+        #from_email = "Avenzone3@gmail.com"
+
+        #if mail == from_email:
+        #    try:
+        #        send_mail(subject, message, from_email, ['admin@example.com'])
+        #    except BadHeaderError:
+        #        return HttpResponse('Invalid header found.')
+        #    return redirect('account:verification')
+        #else:
+            # In reality we'd use a form class
+
+
+        # to get proper validation errors.
+        #return HttpResponse('Make sure all fields are entered and valid.')
 
 
 def index(request):
@@ -84,9 +114,9 @@ def feedbackbase(request):
         name = request.POST.get("fname",'')
         mail = request.POST.get("email", '')
         feed = request.POST.get("Textarea", '')
-        # print(name)
-        # print(mail)
-        # print(feed)
+        print(name)
+        print(mail)
+        print(feed)
         us = Review()
         us.email = mail
         us.name = name
@@ -175,4 +205,48 @@ def notification(request):
     return render(request, 'accounts/notification.html')
 
 def profile(request):
-    return render(request, 'accounts/profile.html')
+    if request.user.is_authenticated:
+        us = request.user;
+        profile = UserProfile.objects.get(auth_user = us)
+        data = {'profile':profile}
+        return render(request, 'accounts/profile.html', data)
+    return redirect("accounts:index")
+
+def friendprofile(request, usern):
+    if usern is not None:
+        print(usern)
+        us = User.objects.get(username = usern)
+        profile = UserProfile.objects.get(auth_user = us)
+        posts = Post.objects.filter(auth_user = us)
+        
+        data = {'profile': profile}
+        return render(request, 'accounts/friendprofile.html', data)
+    messages.error(request, 'Not a valid user')
+    return redirect("accounts:home")
+
+def details(request):
+    return render(request, 'accounts/details.html')
+
+def editdetails(request):
+    return render(request, 'accounts/editdetails.html')
+
+def followers(request):
+    if request.user.is_authenticated:
+        us = request.user
+        flwrs = Follower.objects.filter(auth_user = us)
+        
+        data = {'followers':flwrs}
+        return render(request, 'accounts/followers.html', data)
+    return redirect("accounts:index")
+
+def following(request):
+    if request.user.is_authenticated:
+        us = request.user
+        flws = Following.objects.filter(auth_user = us)
+        data = {'follows':flws}
+        return render(request, 'accounts/following.html', data)
+    return redirect("accounts:index")
+    
+
+def createpost(request):
+    return render(request, 'accounts/createpost.html')

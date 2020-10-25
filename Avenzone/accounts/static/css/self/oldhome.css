@@ -1,0 +1,61 @@
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+}
+
+body {
+  color: #131111;
+}
+
+/* FOR BOX BOUNDARY */
+
+.flex-auto {
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+}
+
+.h-250 { height: 250px; }
+@media (min-width: 768px) {
+  .h-md-250 { height: 250px; }
+}
+
+
+/* FOR INFO TEXT */
+
+.info h3{
+	font-weight: 500;
+	color:#f5f5f5;
+}
+
+.info p{
+	font-size: 16px;
+	color:#f5f5f5;
+}
+
+.info a{
+  color: #D00000;
+}
+
+/* CARDS*/
+
+.card {
+	padding: 3px;
+}
+
+/* FOR BLOG POSTS */
+
+.blog-post {
+  margin-bottom: 4rem;
+  background-color: #f5f5f5;
+
+}
+.blog-post-title {
+  /*margin-left: 1rem;*/
+  margin-bottom: .25rem;
+  font-size: 2.5rem;
+  background-color: #D00000;
+}
+
+.blog-post p{
+  margin: 1rem;
+}
