@@ -243,7 +243,16 @@ def following(request):
     if request.user.is_authenticated:
         us = request.user
         flws = Following.objects.filter(auth_user = us)
-        data = {'follows':flws}
+        people = UserProfile.objects.all().order_by('-rating', 'followers_count')
+        # notflw = UserProfile.objects.all().order_by('-rating', 'followers_count')
+        # for flw in flws:
+        #     global notflw
+        fls = [flw for flw in flws]
+        print(fls)
+        # notflw = UserProfile.objects.exclude(auth_user = flw.followed_to.auth_user)
+        # print(notflw)
+                
+        data = {'follows':flws, 'people': people}
         return render(request, 'accounts/following.html', data)
     return redirect("accounts:index")
     
