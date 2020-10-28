@@ -41,8 +41,8 @@
        <div class="dark2">
          <img src="{% static "images/gamer.jpg" %}"  alt="" loading="lazy" id="over" style="" class="responsive">
          <div class="container responsive" >
-             <span href="" class="header2 username responsive examplet"><img src="{% static "images/lady.png" %}" width="80px" height="80px" style="border-radius:170px; ">
-             @coco131 <button type="button" class="btn btn-danger"><a class="textmuted" href ="{% url 'accounts:editdetails' %}">Edit Profile</a></button></span>
+             <span href="" class="header2 username responsive examplet"><img src="/media/{{profile.profile_pic}}" width="80px" height="80px" style="border-radius:170px; ">
+             {{user}} <button type="button" class="btn btn-danger"><a class="textmuted" href ="{% url 'accounts:editdetails' %}">Edit Profile</a></button></span>
          </div>
        </div>
 
@@ -78,24 +78,24 @@
 
           <li style="font-size: 20px">Bio
                <ul>
-                <li> dertyryuhfsdfhasufhfuhsufhfushfu</li>
+                <li> {{profile.bio}} </li>
               </ul>
            </li>
 
            <li style="font-size: 20px">Personal info
             <ul>
-                 <li>City :</li>
-                 <li>Country :</li>
-                 <li>Gender : </li>
-                 <li>Date of Birth : </li>
+                 <li>City : {{profile.city}}</li>
+                 <li>Country : {{profile.country}}</li>
+                 <li>Gender : {{profile.gender}}</li>
+                 <li>Date of Birth : {{profile.dob}}</li>
             </ul>
            </li>
 
            <li style="font-size: 20px">Contact info
                <ul>
-                 <li>Facebook link : </li>
-                 <li>Email address : </li>
-                 <li>Phone no.: </li>
+                 <!-- <li>Facebook link : </li> -->
+                 <li>Email address : {{user.email}}</li>
+                 <li>Phone no.: {{profile.phone}}</li>
                </ul>
            </li>
         </ul>

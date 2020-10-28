@@ -190,7 +190,12 @@ def terms(request):
 
 
 def home(request):
-    return render(request, 'accounts/home.html')
+    if request.user.is_authenticated:
+        us = request.user
+        profile = UserProfile.objects.get(auth_user = us)
+        data = {"profile":profile}
+        return render(request, 'accounts/home.html', data)
+    return redirect("accounts:index")
 
 
 def logoutbase(request):
@@ -202,6 +207,7 @@ def follow(request):
     return render(request, 'accounts/follow.html')
 
 def notification(request):
+    
     return render(request, 'accounts/notification.html')
 
 def profile(request):
@@ -218,23 +224,51 @@ def friendprofile(request, usern):
         us = User.objects.get(username = usern)
         profile = UserProfile.objects.get(auth_user = us)
         posts = Post.objects.filter(auth_user = us)
-        
-        data = {'profile': profile}
+        sprofile = UserProfile.objects.get(auth_user = request.user)
+
+        data = {'profile': profile, 'sprofile': sprofile}
         return render(request, 'accounts/friendprofile.html', data)
     messages.error(request, 'Not a valid user')
     return redirect("accounts:home")
 
 def details(request):
-    return render(request, 'accounts/details.html')
+    if request.user.is_authenticated:
+        us = request.user
+        profile = UserProfile.objects.get(auth_user = us)
+        data = {"profile":profile}
+        return render(request, 'accounts/details.html', data)
 
 def editdetails(request):
-    return render(request, 'accounts/editdetails.html')
+    if request.user.is_authenticated:
+        us = request.user
+        profile = UserProfile.objects.get(auth_user = us)
+        data = {"profile":profile}
+        if request.method == "POST":
+            bio = request.POST.get('bio', '')
+            city = request.POST.get('city', '')
+            country = request.POST.get('country', '')
+            phone = request.POST.get('phone', '')
+            doby = request.POST.get('doby', "0")
+            dobm = request.POST.get('dobm', "0")
+            dobd = request.POST.get('dobd', "0")
+            dobs = f"{doby}-{dobm}-{dobd}"
+            dob = datetime.datetime.strptime(dobs, "%Y-%m-%d").date()
+            profile.dob = dob
+            profile.bio = bio
+            profile.city = city
+            profile.country = country
+            profile.phone = phone
+            profile.save()
+            return redirect("accounts:details")
+            
+        return render(request, 'accounts/editdetails.html', data)
+    return redirect("accounts:index")
+    
 
 def followers(request):
     if request.user.is_authenticated:
         us = request.user
         flwrs = Follower.objects.filter(auth_user = us)
-        
         data = {'followers':flwrs}
         return render(request, 'accounts/followers.html', data)
     return redirect("accounts:index")
@@ -251,11 +285,21 @@ def following(request):
         print(fls)
         # notflw = UserProfile.objects.exclude(auth_user = flw.followed_to.auth_user)
         # print(notflw)
-                
+
         data = {'follows':flws, 'people': people}
         return render(request, 'accounts/following.html', data)
     return redirect("accounts:index")
-    
+
 
 def createpost(request):
     return render(request, 'accounts/createpost.html')
+
+def rating(request):
+    if request.user.is_authenticated:
+        us = request.user
+        profile = UserProfile.objects.get(auth_user = us)
+        rates = UserRating.objects.filter(rated_for = us).order_by("-rate")
+        data = {"ratings":rates, 'profile': profile}
+        return render(request, 'accounts/rating.html', data)
+    return redirect("accounts:index")
+    

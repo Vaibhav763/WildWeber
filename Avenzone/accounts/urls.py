@@ -27,6 +27,7 @@ urlpatterns = [
     url(r'^details/$', views.details, name='details'),
     url(r'^editdetails/$', views.editdetails, name='editdetails'),
     url(r'^createpost/$', views.createpost, name='createpost'),
+    url(r'^rating/$', views.rating, name='rating'),
 
 
     re_path(r'^logoutbase/$', views.logoutbase, name='logoutbase'),

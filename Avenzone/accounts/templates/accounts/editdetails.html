@@ -40,29 +40,40 @@
       <div class="main">
         <div class="main-center">
         <h4>Update your Info</h4>
-          <form class="" method="post" action="#">
+          <form class="" method="post"> {% csrf_token %}
 
             <div class="form-group">
               <label for="password">Bio</label>
                 <div class="input-group">
                   <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-                  <input type="password" class="form-control" name="password" placeholder="Tell Something about You"/>
+                  <input type="text" class="form-control" value="{{profile.bio}}" name="bio" placeholder="Tell Something about You"/>
                 </div>
             </div>
 
             <div class="form-group">
-              <label for="name">Currently living in</label>
+              <label for="name">City</label>
                 <div class="input-group">
                   <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-                  <input type="text" class="form-control" name="name" id="name"  placeholder="Enter city/state/country name"/>
+                  <input type="text" class="form-control" name="city" id="city" value="{{profile.city}}" placeholder="Enter city"/>
+                </div>
+            </div>
+            <div class="form-group">
+              <label for="email">Country</label>
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+                  <input type="text" class="form-control" name="country" value="{{profile.country}}" placeholder="Enter country"/>
                 </div>
             </div>
 
             <div class="form-group">
               <label for="username">Date of Birth</label>
+              <label for="username">Previous data: {{profile.dob}}</label>
                 <div class="input-group">
                   <span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
-                  <input type="text" class="form-control" name="username" placeholder="Enter your DOB"/>
+                  <input type="text" class="form-control col-md-4" value = {{profile.dob|date:"Y"}} name="doby" placeholder="YYYY"/>
+                  <input type="text" class="form-control col-md-4" value = {{profile.dob|date:"m"}} name="dobm" placeholder="MM"/>
+                  <input type="text" class="form-control col-md-4" value = {{profile.dob|date:"d"}} name="dobd" placeholder="DD"/>
+                  <!-- <input type="text" class="form-control col-md-4" name="dob" placeholder="year"/> -->
                 </div>
             </div>
 
@@ -70,25 +81,19 @@
               <label for="name">Your phone number</label>
                 <div class="input-group">
                   <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-                  <input type="tel" class="form-control" name="phone" id="phone"  placeholder="Enter city/state/country name"/>
+                  <input type="tel" class="form-control" name="phone" id="phone" value="{{profile.phone}}" placeholder="phone"/>
               </div>
             </div>
 
-            <div class="form-group">
-              <label for="email">Facebook link</label>
-                <div class="input-group">
-                  <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
-                  <input type="url" class="form-control" name="homepage" placeholder="Enter your profile link here"/>
-                </div>
-            </div>
+            
 
-            <div class="form-group">
+            <!-- <div class="form-group">
               <label for="confirm">extra</label>
                 <div class="input-group">
                   <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
                   <input type="password" class="form-control" name="confirm" placeholder="extra"/>
                 </div>
-            </div>
+            </div> -->
 
         <button type="submit" class="btn btn-danger">UPDATE</button>
 
