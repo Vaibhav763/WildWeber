@@ -1,0 +1,184 @@
+<!doctype html>
+{% extends "accounts/base.html" %}
+{% block body_block %}
+{% load static %}
+
+    <link href="{% static "css/self/profile.css" %}" rel="stylesheet">
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+       @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+}
+       @media screen and (min-width: 601px) {
+       div.examplet {
+       font-size: 80px;
+       }
+       }
+
+       @media screen and (max-width: 600px) {
+       div.examplet {
+       font-size: 30px;
+       }
+       }
+    </style>
+
+ <main role="main" class="container" style="margin-top: 65px;">
+
+ <!-- first container   -->
+
+    <div class="  dark2">
+      <img src="{% static "images/gamer.jpg" %}"  alt="" loading="lazy" id="over" style="" class="responsive">
+      <div class="container responsive" >
+          <span href="" class="header2 username responsive examplet"><img src="{% static "images/lady.png" %}" width="80px" height="80px" style="border-radius:170px; ">
+          @coco131 <button type="button" class="btn btn-danger">Edit Profile </button></span>
+
+      </div>
+    </div>
+
+
+
+ <div class="container-fluid gedf-wrapper">
+        <div class="row" >
+            <div class="col-sm-4 "  >
+                <div class="card"style="color: grey; background: rgba(85, 85, 85, 0.3); margin-top: 10px; ">
+                    <div class="card-body">
+                        <div class="h5">INTRO</div>
+                        <div class="h7 text-muted">Fullname : Miracles Lee Cross</div>
+                        <div class="h7">Pro player in Zombie tsunami, Amongus, Mario, Snake, etc.
+                        </div>
+                    </div>
+                    <ul class="list-group list-group-flush" style="background: rgba(00, 00, 00, 0.3);">
+                        <li class="list-group-item" style="background: rgba(00, 00, 00, 0.3);">
+                            <div class="h6 text-muted">Followers</div>
+                            <div class="h5">5.2342</div>
+                        </li>
+                        <li class="list-group-item"style="background: rgba(00, 00, 00, 0.3);">
+                            <div class="h6 text-muted">Following</div>
+                            <div class="h5">6758</div>
+                        </li>
+                        <li class="list-group-item"style="background: rgba(00, 00, 00, 0.3);">Trophies
+                          <div class="h5">6758</div>
+                        </li>
+                        <li class="list-group-item"style="background: rgba(00, 00, 00, 0.3);">Rating
+                          <div class="h5">3.5</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- main -->
+
+<div class="col-lg-8 gedf-main">
+
+          <div class="my-3 p-3 rounded shadow-sm" style="background: rgba(85, 85, 85, 0.3);">
+              <h5 class="border-bottom border-gray pb-2 mb-0" style="color: #545454">Rating</h5>
+
+              <div class="media text-muted pt-3">
+                <svg class="bd-placeholder-img mr-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 32x32"><title>Placeholder</title></title><image width="50" height="40" xlink:href="../assets/brand/lady.png" clip-path="url(#myCircle)" /></svg>
+                <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+                  <strong class="d-block text-gray-dark" >@drew31</strong>
+                  <span style="color: #828282">Creating a life, I love</span>
+                </p>
+
+                <small class="d-block text-right mt-3 " >
+                <p style="color: #828282"><a href="#" class="card-link badge badge-light">Rated : 3.5</a></p>
+                </small>
+              </div>
+
+              <div class="media text-muted pt-3">
+                <svg class="bd-placeholder-img mr-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 32x32"><title>Placeholder</title><image width="50" height="40" xlink:href="../assets/brand/lady.png" clip-path="url(#myCircle)" /></svg>
+                <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+                  <strong class="d-block text-gray-dark">@ammanda23</strong>
+                  <span style="color: #828282">Simplicity is the key to happiness</span>
+                </p>
+                <small class="d-block text-right mt-3">
+                <p style="color: #828282"><a href="#" class="card-link badge badge-light">Rated : 3.5</a> </p>
+              </small>
+              </div>
+
+              <div class="media text-muted pt-3">
+                <svg class="bd-placeholder-img mr-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 32x32"><title>Placeholder</title><image width="50" height="40" xlink:href="../assets/brand/lady.png" clip-path="url(#myCircle)" /></svg>
+                <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+                  <strong class="d-block text-gray-dark">@username</strong>
+                  <span style="color: #828282">In a world of worriers, be a warrior</span>
+                </p>
+                <small class="d-block text-right mt-3">
+                <p style="color: #828282"><a href="#" class="card-link badge badge-light">Rated : 3.5</a></p>
+              </small>
+              </div>
+
+              <div class="media text-muted pt-3">
+                <svg class="bd-placeholder-img mr-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 32x32"><title>Placeholder</title><image width="50" height="40" xlink:href="../assets/brand/lady.png" clip-path="url(#myCircle)" /></svg>
+                <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+                  <strong class="d-block text-gray-dark">@username</strong>
+                  <span style="color: #828282">In a world of worriers, be a warrior</span>
+                </p>
+                <small class="d-block text-right mt-3">
+                <p style="color: #828282"><a href="#" class="card-link badge badge-light">Rated : 3.5</a></p>
+              </small>
+              </div>
+
+              <div class="media text-muted pt-3">
+                <svg class="bd-placeholder-img mr-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 32x32"><title>Placeholder</title><image width="50" height="40" xlink:href="../assets/brand/lady.png" clip-path="url(#myCircle)" /></svg>
+                <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+                  <strong class="d-block text-gray-dark">@username</strong>
+                  <span style="color: #828282">We have tomorrows for reason</span>
+                </p>
+                <small class="d-block text-right mt-3">
+                <a href="#" class="card-link badge badge-light">Rated : 3.5</a></p>
+              </small>
+              </div>
+
+              <div class="media text-muted pt-3">
+                <svg class="bd-placeholder-img mr-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 32x32"><title>Placeholder</title><image width="50" height="40" xlink:href="../assets/brand/lady.png" clip-path="url(#myCircle)" /></svg>
+                <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+                  <strong class="d-block text-gray-dark">@username</strong>
+                  <span style="color: #828282">At the end of the day,life should ask us whether we want to save the changes or not.</span>
+                </p>
+                <small class="d-block text-right mt-3">
+                <p style="color: #828282"><a href="#" class="card-link badge badge-light">Rated : 3.5</a></p>
+              </small>
+              </div>
+
+              <div class="media text-muted pt-3">
+                <svg class="bd-placeholder-img mr-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 32x32"><title>Placeholder</title><image width="50" height="40" xlink:href="../assets/brand/lady.png" clip-path="url(#myCircle)" /></svg>
+                <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+                  <strong class="d-block text-gray-dark">@username</strong>
+                  <span style="color: #828282">Wanting to be someone else is a waste of who you are</span>
+                </p>
+                <small class="d-block text-right mt-3">
+                <p style="color: #828282"><a href="#" class="card-link badge badge-light">Rated : 3.5</a></p>
+              </small>
+              </div>
+
+              <div class="media text-muted pt-3">
+                <svg class="bd-placeholder-img mr-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 32x32"><title>Placeholder</title><image width="50" height="40" xlink:href="../assets/brand/lady.png" clip-path="url(#myCircle)" /></svg>
+                <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+                  <strong class="d-block text-gray-dark">@username</strong>
+                  <span style="color: #828282">In a world where you can have everything. Be a giver first.</span>
+                </p>
+                <small class="d-block text-right mt-3">
+                <p style="color: #828282"><a href="#" class="card-link badge badge-light">Rated : 3.5</a></p>
+              </small>
+              </div>
+              
+              <small class="d-block text-right mt-3">
+                <a href="#">All raters</a>
+              </small>
+            </div>
+          </div>
+        </div>
+    </div>
+
+</main>
+{% endblock %}

@@ -14,20 +14,23 @@
 
 
   <!-- following -->
+  
   <div class="my-3 p-3 rounded shadow-sm" style="background: rgba(85, 85, 85, 0.3)">
     <h5 class="border-bottom border-gray pb-2 mb-0"  style="color: #545454">Following</h5>
+  {% for person in follows %}
     <div class="media text-muted pt-3">
       <svg class="bd-placeholder-img mr-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 32x32"><title>Placeholder</title>
-         <image width="50" height="40" xlink:href="../assets/brand/lady.png" clip-path="url(#myCircle)" /></svg>
+         <image width="50" height="40" xlink:href="/media/{{person.followed_to.profile_pic}}" clip-path="url(#myCircle)" /></svg>
       <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
         <div class="d-flex justify-content-between align-items-center w-100">
-          <strong class="text-gray-dark">Full Name</strong>
+          <a href="{% url 'accounts:friendprofile' person.followed_to.auth_user %}"><strong class="text-gray-dark">{{person.followed_to.auth_user.first_name}} {{person.followed_to.auth_user.last_name}}</strong></a>
           <a href="#">Following</a>
         </div>
-        <span class="d-block">@username</span>
+        <span class="d-block">@{{person.followed_to.auth_user}}</span>
       </div>
     </div>
-    <div class="media text-muted pt-3">
+  {% endfor %}
+    <!-- <div class="media text-muted pt-3">
       <svg class="bd-placeholder-img mr-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 32x32"><title>Placeholder</title><image width="50" height="40" xlink:href="../assets/brand/lady.png" clip-path="url(#myCircle)" /></svg>
       <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
         <div class="d-flex justify-content-between align-items-center w-100">
@@ -46,7 +49,7 @@
         </div>
         <span class="d-block">@username</span>
       </div>
-    </div>
+    </div> -->
     <small class="d-block text-right mt-3">
       <a href="#">All following</a>
     </small>
@@ -54,18 +57,24 @@
   <!-- end of following -->
 
 <!-- suggestion -->
-<div class="my-3 p-3 rounded shadow-sm" style="background: rgba(85, 85, 85, 0.3)">
-    <h5 class="border-bottom border-gray pb-2 mb-0"  style="color: #545454">Suggestions</h5>
+<!-- <div class="my-3 p-3 rounded shadow-sm" style="background: rgba(85, 85, 85, 0.3)">
+  <h5 class="border-bottom border-gray pb-2 mb-0"  style="color: #545454">Suggestions</h5>
+
+    {% for suggestion in people %}
+
     <div class="media text-muted pt-3">
-      <svg class="bd-placeholder-img mr-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 32x32"><title>Placeholder</title></title><image width="50" height="40" xlink:href="../assets/brand/lady.png" clip-path="url(#myCircle)" /></svg>
+      <svg class="bd-placeholder-img mr-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 32x32"><title>Placeholder</title></title><image width="50" height="40" xlink:href="/media/{{suggestion.profile_pic}}" clip-path="url(#myCircle)" /></svg>
       <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
         <div class="d-flex justify-content-between align-items-center w-100">
-          <strong class="text-gray-dark">Full Name</strong>
+          <a href="{% url 'accounts:friendprofile' suggestion.auth_user %}"><strong class="text-gray-dark">Full Name</strong></a>
           <a href="#">Follow</a>
         </div>
         <span class="d-block">@username</span>
       </div>
     </div>
+    
+
+    {% endfor %}
     <div class="media text-muted pt-3">
       <svg class="bd-placeholder-img mr-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 32x32"><title>Placeholder</title></title><image width="50" height="40" xlink:href="../assets/brand/lady.png" clip-path="url(#myCircle)" /></svg>
       <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
@@ -89,7 +98,7 @@
     <small class="d-block text-right mt-3">
       <a href="#">All suggestions</a>
     </small>
-  </div>
+  </div> -->
   <!-- end of suggestion -->
 </main>
     <script src="offcanvas.js"></script></body>

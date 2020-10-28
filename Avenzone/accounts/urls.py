@@ -19,7 +19,7 @@ urlpatterns = [
     url(r'^password/$', views.password, name='password'),
     url(r'^home/$', views.home, name='home'),
     url(r'^profile/$', views.profile, name='profile'),
-    url(r'^friendprofile/$', views.friendprofile, name='friendprofile'),
+    path('userprofile/<str:usern>/', views.friendprofile, name='friendprofile'),
     url(r'^notification/$', views.notification, name='notification'),
     url(r'^follow/$', views.follow, name='follow'),
     url(r'^followers/$', views.followers, name='followers'),
@@ -27,6 +27,7 @@ urlpatterns = [
     url(r'^details/$', views.details, name='details'),
     url(r'^editdetails/$', views.editdetails, name='editdetails'),
     url(r'^createpost/$', views.createpost, name='createpost'),
+    url(r'^rating/$', views.rating, name='rating'),
 
 
     re_path(r'^logoutbase/$', views.logoutbase, name='logoutbase'),

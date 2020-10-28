@@ -45,6 +45,7 @@ class UserProfile(models.Model):
     # Secret key used for email verification
     secretkey = models.PositiveIntegerField(blank=True)
     email_verified = models.BooleanField(default=False)
+    rating = models.DecimalField(decimal_places=2, max_digits=3, blank=False, default=0)
     # User is verified or not (Greater than a certain follower count)(Checked by Admins)
     is_verified = models.BooleanField(default=False)
     followers_count = models.PositiveIntegerField(default=0)
@@ -141,6 +142,7 @@ class Post(models.Model):
     postdata = models.FileField(upload_to=get_upload_path_files, blank=True)
     slug = models.SlugField(max_length=50, blank=False, default='')
     posted_on = models.DateTimeField()
+    rating = models.DecimalField(decimal_places=2, max_digits=3, blank=False, default=0)
     game = models.ForeignKey(Game, on_delete=models.CASCADE, blank=True)
 
     def save(self, *args, **kwargs):
@@ -234,9 +236,9 @@ class Follower(models.Model):
 
     def __str__(self):
         return f'{self.auth_user.username} followed by {self.followed_by.auth_user.username}'
-
+    
 class GameFollower(models.Model):
-
+    
     game = models.ForeignKey(Game, on_delete=models.CASCADE)
     followed_by = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
 
@@ -246,9 +248,9 @@ class GameFollower(models.Model):
 
     def __str__(self):
         return f'{self.game.name} followed by {self.followed_by.auth_user.username}'
-
+    
 class GameFollowing(models.Model):
-
+    
     game = models.ForeignKey(Game, on_delete=models.CASCADE)
     followed_to = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
 
@@ -290,7 +292,7 @@ class UserNotification(models.Model):
 
     def __str__(self):
         return f'{self.pk}-{self.content.title}'
-
+    
 # to get back the feedback from user
 
 class Review(models.Model):

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import UserProfile, Review ,UserRating, Game, GameRating,Post,PostRating,Comment,PostReport,UserReport,GameReport,Follower,Following,CreatorNotification,UserNotification
+from .models import UserProfile, UserRating, Review, Game, GameRating,Post,PostRating,Comment,PostReport,UserReport,GameReport,Follower,Following,CreatorNotification,UserNotification
 # Register your models here.
 
 admin.site.register(UserProfile)

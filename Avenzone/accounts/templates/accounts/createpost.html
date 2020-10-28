@@ -35,88 +35,114 @@
     </style>
 
 
-  <main role="main" class="container" style="margin-top: 130px; margin-bottom:50px">
-<!-- main  -->
+<main role="main" class="container" style="margin-top: 130px; margin-bottom:50px">
+  
+    <div class="container-fluid gedf-wrapper">
+           <div class="row" >
+               <div class="col-md-3"  >
+                   <div class="card"style="color: grey; background: rgba(85, 85, 85, 0.3); margin-left: 10px; margin-bottom: 15px;">
+                       <div class="card-body">
+                           <div class="h5">@LeeCross</div>
+                           <div class="h7 text-muted">Fullname : Miracles Lee Cross</div>
+                           <div class="h7">Pro player in Zombie tsunami, Amongus, Mario, Snake, etc.
+                           </div>
+                       </div>
+                       <ul class="list-group list-group-flush" style="background: rgba(00, 00, 00, 0.3);">
+                           <li class="list-group-item" style="background: rgba(00, 00, 00, 0.3);">
+                               <div class="h6 text-muted">Followers</div>
+                               <div class="h5">5.2342</div>
+                           </li>
+                           <li class="list-group-item"style="background: rgba(00, 00, 00, 0.3);">
+                               <div class="h6 text-muted">Following</div>
+                               <div class="h5">6758</div>
+                           </li>
+                           <li class="list-group-item"style="background: rgba(00, 00, 00, 0.3);">Vestibulum at eros</li>
+                       </ul>
+                   </div>
+               </div>
+               <div class="col-md-9 gedf-main">
 
-     <div class="container-fluid gedf-wrapper">
-        <div class="row" >
-            <div class="col-md-3"  >
-                <div class="card"style="color: grey; background: rgba(85, 85, 85, 0.3); margin-left: 10px; margin-bottom: 15px;">
-                    <div class="card-body">
-                        <div class="h5">@LeeCross</div>
-                        <div class="h7 text-muted">Fullname : Miracles Lee Cross</div>
-                        <div class="h7">Pro player in Zombie tsunami, Amongus, Mario, Snake, etc.
-                        </div>
-                    </div>
-                    <ul class="list-group list-group-flush" style="background: rgba(00, 00, 00, 0.3);">
-                        <li class="list-group-item" style="background: rgba(00, 00, 00, 0.3);">
-                            <div class="h6 text-muted">Followers</div>
-                            <div class="h5">5.2342</div>
-                        </li>
-                        <li class="list-group-item"style="background: rgba(00, 00, 00, 0.3);">
-                            <div class="h6 text-muted">Following</div>
-                            <div class="h5">6758</div>
-                        </li>
-                        <li class="list-group-item"style="background: rgba(00, 00, 00, 0.3);">Vestibulum at eros</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-md-9 gedf-main">
+                   <!--- \\\\\\\do some Post-->
+                   <div class="card gedf-card" style="color: grey; background: rgba(85, 85, 85, 0.3); margin-bottom: 10px;">
+                       <div class="card-header">
+                           <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
+                               <li class="nav-item">
+                                   <a class="nav-link" id="images-tab" data-toggle="tab" role="tab" aria-controls="images" aria-selected="false" href="#images" style="color: grey;background: rgba(00, 00, 00, 0.3);">Share Something</a>
+                               </li>
+                           </ul>
+                       </div>
+                       <div class="card-body">
+                           <div class="tab-content" id="myTabContent">
+                               <div class="tab-pane fade show active" id="images" role="tabpanel" aria-labelledby="images-tab">
+                                   <div class="form-group">
+                                       <div class="custom-file">
+                                         <p></p>
+                                           <input type="file" class="custom-file-input" id="customFile" onchange="readURL(this);">
+                                            <img id="blah" src="#" alt="your image" />
+                                           <p></p>
+                                           <textarea class="form-control" id="message" rows="1" placeholder="Caption" style="background: rgba(00, 00, 00, 0.3);"></textarea>
+                                           <p></p>
+                                           <label class="custom-file-label" for="customFile">Upload image/video</label>
+                                           <p></p>
+                                           <textarea class="form-control" id="message" rows="3" placeholder="Description" style="background: rgba(00, 00, 00, 0.3);"></textarea>
+                                           <p></P>
+                                          <div class="btn-toolbar justify-content-between">
 
-                <!--- \\\\\\\do some Post-->
-                <div class="card gedf-card" style="color: grey; background: rgba(85, 85, 85, 0.3); margin-bottom: 10px;">
-                    <div class="card-header">
-                        <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
-                            <li class="nav-item" >
-                                <a class="nav-link active" id="posts-tab" data-toggle="tab" href="#posts" role="tab" aria-controls="posts" aria-selected="true" style="background: rgba(00, 00, 00, 0.3);">Share something..!!</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" id="images-tab" data-toggle="tab" role="tab" aria-controls="images" aria-selected="false" href="#images" style="color: grey;background: rgba(00, 00, 00, 0.3);">Images/Videos</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="card-body">
-                        <div class="tab-content" id="myTabContent">
-                            <div class="tab-pane fade show active" id="posts" role="tabpanel" aria-labelledby="posts-tab">
-                                <div class="form-group" >
-                                    <label class="sr-only" for="message">post</label>
-                                    <textarea class="form-control" id="message" rows="3" placeholder="What are you thinking?" style="background: rgba(00, 00, 00, 0.3);"></textarea>
+   		                            <div class="btn-group">
+   		                                <button type="submit" class="btn btn-danger">Share</button>
+   		                            </div>
+
+   		                            <div class="btn-group" >
+   		                                <button id="btnGroupDrop1" type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+   		                                    aria-expanded="false"style="color: grey;background: rgba(00, 00, 00, 0.3);">
+   		                                    <i class="fa fa-globe"></i>
+   		                                </button>
+   		                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="btnGroupDrop1" >
+   		                                    <a class="dropdown-item" href="#"><i class="fa fa-globe"></i> Public</a>
+   		                                    <a class="dropdown-item" href="#"><i class="fa fa-users"></i> Friends</a>
+   		                                    <a class="dropdown-item" href="#"><i class="fa fa-user"></i> Just me</a>
+   		                                </div>
+   		                            </div>
+
+                           				</div>
                                 </div>
-
+                              </div>
                             </div>
-                            <div class="tab-pane fade" id="images" role="tabpanel" aria-labelledby="images-tab">
-                                <div class="form-group">
-                                    <div class="custom-file">
-                                        <input type="file" class="custom-file-input" id="customFile">
-                                        <label class="custom-file-label" for="customFile">Upload image/video</label>
-                                    </div>
-                                </div>
-                                <div class="py-4"></div>
-                            </div>
-                        </div>
-                        <div class="btn-toolbar justify-content-between">
-                            <div class="btn-group">
-                                <button type="submit" class="btn btn-danger">Share</button>
-                            </div>
-                            <div class="btn-group" >
-                                <button id="btnGroupDrop1" type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-                                    aria-expanded="false"style="color: grey;background: rgba(00, 00, 00, 0.3);">
-                                    <i class="fa fa-globe"></i>
-                                </button>
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="btnGroupDrop1" >
-                                    <a class="dropdown-item" href="#"><i class="fa fa-globe"></i> Public</a>
-                                    <a class="dropdown-item" href="#"><i class="fa fa-users"></i> Friends</a>
-                                    <a class="dropdown-item" href="#"><i class="fa fa-user"></i> Just me</a>
-                                </div>
-                            </div>
-                        </div>
+                          </div>
+                       </div>
                     </div>
-                </div>
-                <!-- do some Post ends /////-->
-
-
-        </div>
-    </div>
-    </div>
   </main>
+
+
+      <script type="text/javascript">
+               function readURL(input) {
+             if (input.files && input.files[0]) {
+                 var reader = new FileReader();
+
+                 reader.onload = function (e) {
+                     $('#blah')
+                         .attr('src', e.target.result)
+                         .width(200)
+                         .height(200);
+                 };
+
+                 reader.readAsDataURL(input.files[0]);
+             }
+
+             $('[data-toggle="collapse"]').on('click', function() {
+         var $this = $(this),
+                 $parent = typeof $this.data('parent')!== 'undefined' ? $($this.data('parent')) : undefined;
+         if($parent === undefined) { /* Just toggle my  */
+             $this.find('.glyphicon').toggleClass('glyphicon-plus glyphicon-minus');
+             return true;
+         }
+
+         /* Open element will be close if parent !== undefined */
+         var currentIcon = $this.find('.glyphicon');
+         currentIcon.toggleClass('glyphicon-plus glyphicon-minus');
+         $parent.find('.glyphicon').not(currentIcon).removeClass('glyphicon-minus').addClass('glyphicon-plus');
+
+        });
+         }
+       </script>
   {% endblock %}
